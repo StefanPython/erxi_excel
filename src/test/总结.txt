@@ -1,0 +1,30 @@
+从儿戏项目学习到：
+jdbc的强化，ResultSet，并没有拿到数据库的数据，而是有一个方法  next()  一条一条从数据库取，
+getString（1）是查出的数据的字段位置
+
+强制下载的代码设置
+
+
+System.currentTimeMillis()+Math.round(Math.random()的用法
+
+流的一些知识
+
+ listMap.put(request.getLocalAddr()+"Detail", ods);  这种形式设置key
+
+
+  @RequestMapping("/ExcelOut/{type}")
+     public ResponseEntity<byte[]> download(HttpServletRequest request,@PathVariable("type") String type)
+     设置请求path值的应用
+
+
+     private Logger log = LoggerFactory.getLogger(Route.class); 日志打印
+
+     thymeleaf的使用
+
+     文件放到static里的直接调用
+
+一个项目的部署打包成jar包，在服务器上下载一个jre，把jar包放在jre 斌目录下 ，
+cmd命令  java -java  jar包名
+
+将maven项目打包（Maven Projects--package）将jar包（erxi_excel-0.0.1-SNAPSHOT.jar）放置与jre的bin目录下
+执行D:\jre\jre1.8.0_151\bin>java -jar erxi_excel-0.0.1-SNAPSHOT.jar命令启动项目

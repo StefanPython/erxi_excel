@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>OrderMoney详情</title>
+    <script language="javascript" type="text/javascript" src="/My97DatePicker/WdatePicker.js">
+    </script>
+</head>
+
+<body>
+<table>
+    <tr>
+     <td>
+<form th:action="@{/getOrderMoney}" th:method="get">
+    从<input  type="text" onClick="WdatePicker()" name="StartDate"/>
+    到<input   type="text" onClick="WdatePicker()" name="EndDate"/>
+    <input type="submit" value="查询"/>
+</form>
+</td>
+<td>
+    <form th:action="@{/ExcelOut/Money}" th:method="get">
+
+        <input type="submit" value="导出"/>
+    </form>
+</td>
+</tr>
+</table>
+<table width="800px" cellpadding="0px" cellspacing="0px" border="1px" style="border:1px  solid gray; border-collapse: collapse;">
+    <tr>
+        <th>订单编号</th>
+        <th>主办方</th>
+        <th>活动标题</th>
+        <th>活动开始时间</th>
+        <th>下单人昵称</th>
+        <th>注册时间</th>
+        <th>联系人</th>
+        <th>联系电话</th>
+        <th>支付金额</th>
+        <th>购买数量</th>
+        <th>订单创建时间</th>
+        <th>运行平台</th>
+        <th>支付方法</th>
+
+    </tr>
+    <!--用循环标签把ID，姓名，性别和年龄获取出来 -->
+
+    <tr th:each="OrderMoney : ${#httpServletRequest.getAttribute('oms')}">
+        <td th:text="${OrderMoney.OrderNumber}"></td>
+        <td th:text="${OrderMoney.CreatedByUser}"></td>
+        <td th:text="${OrderMoney.title}"></td>
+        <td th:text="${OrderMoney.StartDate}"></td>
+        <td th:text="${OrderMoney.NickName}"></td>
+        <td th:text="${OrderMoney.registerDate}"></td>
+        <td th:text="${OrderMoney.Name}"></td>
+        <td th:text="${OrderMoney.Mobile}"></td>
+        <td th:text="${OrderMoney.Money}"></td>
+        <td th:text="${OrderMoney.Quantity}"></td>
+        <td th:text="${OrderMoney.createDate}"></td>
+        <td th:text="${OrderMoney.Platform}"></td>
+        <td th:text="${OrderMoney.PayMethod}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
